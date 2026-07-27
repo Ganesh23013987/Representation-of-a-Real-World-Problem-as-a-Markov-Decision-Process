@@ -173,5 +173,4 @@ print("\nDiscount Factor (γ):", discount_factor)
 
 # Result
 
-The Student Study Planner was successfully represented as a Markov Decision Process (MDP). The Python implementation models states, actions, transition probabilities, rewards, and discount factor using dictionaries, demonstrating the application of Reinforcement Learning concepts to a real-world problem.
-
+The Student Study Planner was successfully modeled as a Markov Decision Process (MDP) and implemented using Python.
