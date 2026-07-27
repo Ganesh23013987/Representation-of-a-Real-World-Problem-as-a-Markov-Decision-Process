@@ -109,82 +109,69 @@ A = {
 ---
 
 # Graphical Representation
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0734205d-2a07-46fe-a73c-e53358b69edc" />
 
-> Add your generated MDP image inside the **images** folder.
-
-```text
-images/
-    mdp_diagram.png
-```
-
----
 
 # Python Implementation
 
-The Python implementation uses dictionaries to represent:
+```
+# MDP Representation for student study planner using Python
 
-- States
-- Actions
-- Transition Function
-- Reward Function
-- Discount Factor
+print("Name: GANESH D")
+print("Register Number: 212223240035")
 
-Run
+states = [
+    "Unprepared",
+    "Preparing",
+    "Well Prepared",
+    "Exam Ready"
+]
 
-```bash
-python student_study_planner_mdp.py
+actions = [
+    "Study",
+    "Revise",
+    "Practice Questions",
+    "Take Break"
+]
+
+transition = {
+    ("Unprepared", "Study"): ("Preparing", 0.9),
+    ("Preparing", "Practice Questions"): ("Well Prepared", 0.8),
+    ("Well Prepared", "Revise"): ("Exam Ready", 0.95),
+    ("Preparing", "Take Break"): ("Preparing", 1.0)
+}
+
+rewards = {
+    "Study": 5,
+    "Revise": 4,
+    "Practice Questions": 6,
+    "Take Break": -2
+}
+
+discount_factor = 0.9
+
+print("\nStates:")
+print(states)
+
+print("\nActions:")
+print(actions)
+
+print("\nTransition Function:")
+for key, value in transition.items():
+    print(f"{key} --> {value}")
+
+print("\nRewards:")
+for action, reward in rewards.items():
+    print(f"{action} : {reward}")
+
+print("\nDiscount Factor (γ):", discount_factor)
 ```
 
----
+# Output
+<img width="660" height="514" alt="image" src="https://github.com/user-attachments/assets/faaa5f91-f433-4aeb-a563-89798a932a18" />
 
-# Sample Output
-
-```text
-========== Student Study Planner MDP ==========
-
-States
-------
-1. Unprepared
-2. Preparing
-3. Well Prepared
-4. Exam Ready
-
-Actions
--------
-Study
-Revise
-Practice Questions
-Take Break
-
-Transitions
------------
-Unprepared --Study--> Preparing | Probability = 0.9
-Preparing --Practice Questions--> Well Prepared | Probability = 0.8
-Well Prepared --Revise--> Exam Ready | Probability = 0.95
-Preparing --Take Break--> Preparing | Probability = 1.0
-
-Rewards
--------
-Study : 5
-Revise : 4
-Practice Questions : 6
-Take Break : -2
-
-Discount Factor (γ): 0.9
-```
-
----
 
 # Result
 
 The Student Study Planner was successfully represented as a Markov Decision Process (MDP). The Python implementation models states, actions, transition probabilities, rewards, and discount factor using dictionaries, demonstrating the application of Reinforcement Learning concepts to a real-world problem.
 
----
-
-## Author
-
-**Ganesh D**
-
-B.Tech Artificial Intelligence and Machine Learning
-
-Saveetha Engineering College
