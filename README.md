@@ -114,7 +114,7 @@ A = {
 
 # Python Implementation
 
-```
+```py
 # MDP Representation for student study planner using Python
 
 print("Name: GANESH D")
