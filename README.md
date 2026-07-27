@@ -1,185 +1,190 @@
-# Representation-of-a-Real-World-Problem-as-a-Markov-Decision-Process
+# Representation of a Student Study Planner as a Markov Decision Process (MDP)
 
+## Overview
+
+This project demonstrates how a **Student Study Planner** can be modeled as a **Markov Decision Process (MDP)**. The MDP framework is widely used in Artificial Intelligence and Reinforcement Learning to represent sequential decision-making problems.
+
+In this project, a student's preparation for an examination is modeled using states, actions, transition probabilities, rewards, and a discount factor.
+
+---
 
 ## Aim
 
-Write your aim here.
+To represent a Student Study Planner as a Markov Decision Process (MDP) by defining:
 
-Example:
-
-> To identify a real-world sequential decision-making problem and represent it formally as a Markov Decision Process by defining its states, actions, rewards, transitions, and Python representation.
-
----
-
-## Problem Statement
-
-### Problem Description
-
-Write your answer here.
-
-Describe the real-world application that you selected.
-
+- State Space
+- Action Space
+- Transition Probability
+- Reward Function
+- Discount Factor
+- Python Representation
 
 ---
 
-## MDP Components
+# Problem Statement
 
-A Markov Decision Process is represented as:
+A student plans daily study activities to prepare for examinations. Every day, the student chooses one of the following actions:
 
-$$
-MDP = (S, A, P, R, \gamma)
-$$
+- Study
+- Revise
+- Practice Questions
+- Take a Break
 
-Where:
+These actions affect the student's preparation level.
 
-| Symbol | Meaning |
-|---|---|
-| $S$ | Set of states |
-| $A$ | Set of actions |
-| $P$ | Transition probability function |
-| $R$ | Reward function |
-| $\gamma$ | Discount factor |
+The objective is to select the best sequence of actions that maximizes learning and helps the student become fully prepared for the examination.
+
+This real-world problem can be represented as a **Markov Decision Process (MDP).**
 
 ---
 
-## State Space
+# MDP Components
 
-Write your answer here.
+MDP = (S, A, P, R, γ)
 
-The state space should list all possible situations in which the agent can exist.
+| Symbol | Description |
+|---------|-------------|
+| S | Set of States |
+| A | Set of Actions |
+| P | Transition Probability |
+| R | Reward Function |
+| γ | Discount Factor |
 
-Example format:
+---
+
+# State Space
 
 ```text
 S = {
-    State 1,
-    State 2,
-    State 3,
-    ...
+    Unprepared,
+    Preparing,
+    Well_Prepared,
+    Exam_Ready
 }
 ```
 
-
-
 ---
 
-## Sample State
-
-Write your answer here.
-
-A sample state is one specific example from the state space.
-
-
-
----
-
-## Action Space
-
-Write your answer here.
-
-The action space should list all possible actions available to the agent.
-
-Example format:
+# Action Space
 
 ```text
 A = {
-    Action 1,
-    Action 2,
-    Action 3,
-    ...
+    Study,
+    Revise,
+    Practice_Questions,
+    Take_Break
 }
 ```
 
+---
+
+# Transition Function
+
+| Current State | Action | Next State | Probability |
+|---------------|---------|------------|-------------|
+| Unprepared | Study | Preparing | 0.90 |
+| Preparing | Practice Questions | Well Prepared | 0.80 |
+| Well Prepared | Revise | Exam Ready | 0.95 |
+| Preparing | Take Break | Preparing | 1.00 |
 
 ---
 
-## Sample Action
+# Reward Function
 
-Write your answer here.
-
-A sample action is one action selected from the action space.
-
-
-
----
-
-## Transition Probability
-
-Write your answer here.
-
-The transition probability explains how the environment moves from one state to another after an action is taken.
-
-General form:
-
-$$
-P(s' \mid s,a)
-$$
-
-This means:
-
-> Probability of reaching next state $s'$ after taking action $a$ in current state $s$.
-
+| Action | Reward |
+|---------|-------:|
+| Study | +5 |
+| Revise | +4 |
+| Practice Questions | +6 |
+| Take Break | -2 |
 
 ---
 
-## Reward Function
+# Discount Factor
 
-Write your answer here.
-
-The reward function defines the feedback received by the agent after taking an action.
-
-General form:
-
-$$
-R(s,a,s')
-$$
-
-
-
----
-
-## Graphical Representation
-
-Write your answer here.
-
-Draw the MDP graph.
-
-The graph should include:
-
-1. States as nodes.
-2. Actions as arrows.
-3. Rewards on transitions.
-4. Transition probabilities if applicable.
-
-
----
-
-## Python Representation
-
-Write your code here.
-
-Use Python dictionaries to represent the MDP.
-
-
-```python
-# MDP Representation using Python
-# print("Name:       ")
-# print("Register Number:     ")
-
+```text
+γ = 0.9
 ```
----
-## Output
-
-Write your Python output here.
-
 
 ---
 
-## Result
+# Graphical Representation
 
-Write your result here.
+> Add your generated MDP image inside the **images** folder.
 
-
+```text
+images/
+    mdp_diagram.png
+```
 
 ---
 
+# Python Implementation
+
+The Python implementation uses dictionaries to represent:
+
+- States
+- Actions
+- Transition Function
+- Reward Function
+- Discount Factor
+
+Run
+
+```bash
+python student_study_planner_mdp.py
+```
+
+---
+
+# Sample Output
+
+```text
+========== Student Study Planner MDP ==========
+
+States
+------
+1. Unprepared
+2. Preparing
+3. Well Prepared
+4. Exam Ready
+
+Actions
+-------
+Study
+Revise
+Practice Questions
+Take Break
+
+Transitions
+-----------
+Unprepared --Study--> Preparing | Probability = 0.9
+Preparing --Practice Questions--> Well Prepared | Probability = 0.8
+Well Prepared --Revise--> Exam Ready | Probability = 0.95
+Preparing --Take Break--> Preparing | Probability = 1.0
+
+Rewards
+-------
+Study : 5
+Revise : 4
+Practice Questions : 6
+Take Break : -2
+
+Discount Factor (γ): 0.9
+```
+
+---
+
+# Result
+
+The Student Study Planner was successfully represented as a Markov Decision Process (MDP). The Python implementation models states, actions, transition probabilities, rewards, and discount factor using dictionaries, demonstrating the application of Reinforcement Learning concepts to a real-world problem.
+
+---
+
+## Author
+
+**Ganesh D**
+
+B.Tech Artificial Intelligence and Machine Learning
+
+Saveetha Engineering College
